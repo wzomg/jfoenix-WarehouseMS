@@ -12,5 +12,7 @@
 2、更改配置文件：`..\WarehouseMS\src\config\druid.properties`中的参数。
 
 3、注意：libs包--->Add as Library... 
+![项目使用到的依赖包](./libs.png)
 
 4、修改`.fxml文件`需要安装好`JavaFX Scene Builder`软件并在IDEA中设置打开其exe的路径。
+
