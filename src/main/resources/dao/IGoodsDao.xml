@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IGoodsDao">
+
+    <!--添加商品-->
+    <insert id="addGoods" parameterType="List">
+        insert into goods(gName, gShelf, gCnt, gPrice) VALUES
+        <foreach collection="list" item="goods" index="index" separator=",">
+            (#{goods.gName}, #{goods.gShelf}, #{goods.gCnt}, #{goods.gPrice})
+        </foreach>
+    </insert>
+
+    <!--查询所有商品信息-->
+    <select id="findAllGoods" resultType="goods" >
+        select * from goods
+    </select>
+    <!--删除某个商品-->
+    <delete id="deleteGoodById" parameterType="int">
+        delete from goods where gid = #{gid}
+    </delete>
+    <!--查询某个商品信息-->
+    <select id="findGoodById" resultType="goods">
+        select * from goods where gid = #{gid}
+    </select>
+
+    <!--商品出库，减少数量-->
+    <update id="updateGoodsById" >
+        update goods set gCnt = gCnt - #{det} WHERE gid = #{gid}
+    </update>
+
+</mapper>

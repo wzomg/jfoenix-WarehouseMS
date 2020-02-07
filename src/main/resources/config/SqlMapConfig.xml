@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis主配置文件-->
+<configuration>
+    <!--加载数据库配置文件-->
+    <properties resource="config/jdbcConfig.properties">
+    </properties>
+
+    <!--定义类的别名-->
+    <typeAliases>
+        <typeAlias type="patterns.prototype.Goods" alias="goods"></typeAlias>
+        <typeAlias type="patterns.memento.Memento" alias="user"></typeAlias>
+    </typeAliases>
+
+    <!-- 配置环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!-- 配置事务的类型-->
+            <transactionManager type="jdbc"></transactionManager>
+            <!-- 配置数据源（连接池）-->
+            <dataSource type="POOLED">
+                <!-- 配置链接数据库的四个基本信息-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
+    <mappers>
+        <package name="dao"/>
+    </mappers>
+</configuration>

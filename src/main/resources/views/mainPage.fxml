@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPageController">
+   <children>
+      <TabPane fx:id="tabpane" onMouseClicked="#tabClick" prefHeight="700.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="货物入库">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="167.0" layoutY="29.0" text="货物信息">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="636.0" layoutY="29.0" text="进货清单">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="-100.0" endY="644.0" layoutX="542.0" layoutY="1.0" startX="-100.0" />
+                        <Label layoutX="48.0" layoutY="105.0" text="货物名称：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="57.0" layoutY="172.0" text="货架号：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="39.0" layoutY="238.0" text="货物数量：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="goodName" layoutX="146.0" layoutY="99.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="goodShelfid" layoutX="146.0" layoutY="166.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="goodTotal" layoutX="146.0" layoutY="232.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="109.0" layoutY="401.0" mnemonicParsing="false" onAction="#addClick" text="添加">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="284.0" layoutY="401.0" mnemonicParsing="false" onAction="#clearClick" text="重置">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="594.0" layoutY="548.0" mnemonicParsing="false" onAction="#addToDBAClick" prefHeight="23.0" prefWidth="157.0" text="入库">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="38.0" layoutY="302.0" text="货物单价：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="goodPrice" layoutX="146.0" layoutY="297.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <AnchorPane layoutX="447.0" layoutY="84.0" prefHeight="435.0" prefWidth="450.0">
+                           <children>
+                              <TextArea fx:id="textArea" editable="false" prefHeight="435.0" prefWidth="450.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="731.0" layoutY="54.0" text="总计：">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="showValue" layoutX="773.0" layoutY="55.0" text="￥0.00" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="货物出库">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableView" layoutX="65.0" layoutY="20.0" onMouseClicked="#rowClick" prefHeight="322.0" prefWidth="771.0">
+                          <columns>
+                            <TableColumn fx:id="colid" editable="false" prefWidth="78.0" sortable="false" text="货物编号" />
+                            <TableColumn fx:id="colname" editable="false" prefWidth="235.0" sortable="false" text="货物名称" />
+                              <TableColumn fx:id="colshelf" editable="false" prefWidth="178.0" sortable="false" text="货架号" />
+                              <TableColumn fx:id="colnum" editable="false" prefWidth="160.0" sortable="false" text="货物数量" />
+                              <TableColumn fx:id="colprice" editable="false" prefWidth="118.0" sortable="false" text="货物单价" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="103.0" layoutY="380.0" text="货物编号：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="fillid" alignment="CENTER" editable="false" layoutX="200.0" layoutY="374.0" prefHeight="36.0" prefWidth="129.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="397.0" layoutY="380.0" text="货物名称：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="fillname" alignment="CENTER" editable="false" layoutX="500.0" layoutY="374.0" prefHeight="36.0" prefWidth="262.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="38.0" layoutY="448.0" text="货架号：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="316.0" layoutY="448.0" text="出库数量：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="fillshelf" alignment="CENTER" editable="false" layoutX="114.0" layoutY="442.0" prefHeight="36.0" prefWidth="169.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="fillnum" alignment="CENTER" layoutX="405.0" layoutY="442.0" prefHeight="36.0" prefWidth="161.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="332.0" layoutY="512.0" mnemonicParsing="false" onAction="#outboundClick" text="出库">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="494.0" layoutY="512.0" mnemonicParsing="false" onAction="#deleteClick" text="删除">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="597.0" layoutY="448.0" text="货物单价：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="fillPrice" alignment="CENTER" editable="false" layoutX="688.0" layoutY="442.0" prefHeight="36.0" prefWidth="148.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="个人信息">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="414.0" layoutY="36.0" text="个人信息">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="245.0" layoutY="104.0" text="用户账号：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="227.0" layoutY="304.0" text="用户手机号：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="239.0" layoutY="372.0" text="用户地址：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="userid" editable="false" layoutX="347.0" layoutY="98.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="userphone" layoutX="347.0" layoutY="298.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="useraddress" layoutX="347.0" layoutY="366.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="347.0" layoutY="458.0" mnemonicParsing="false" onAction="#updateClick" text="修改">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="438.0" layoutY="458.0" mnemonicParsing="false" onAction="#revokeClick" text="撤销">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="263.0" layoutY="169.0" text="旧密码：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="263.0" layoutY="235.0" text="新密码：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="529.0" layoutY="458.0" mnemonicParsing="false" onAction="#resetClick" text="重置">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <PasswordField fx:id="oldpwd" layoutX="347.0" layoutY="163.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </PasswordField>
+                        <PasswordField fx:id="newpwd" layoutX="347.0" layoutY="229.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </PasswordField>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IUserDao">
+    <!--查询用户，避免注册相同的用户账号-->
+    <select id="selectHasUser" resultType="Integer">
+        select count(*) from user where userid = #{uid}
+     </select>
+
+    <!--增加用户-->
+    <insert id="addUser" parameterType="user">
+        insert into user values (#{userid}, #{userpwd}, #{userphone}, #{useraddress})
+    </insert>
+
+    <!--查询用户信息-->
+    <select id="findUserById" resultType="user" >
+        select * from user WHERE userid = #{id}
+    </select>
+
+    <!--根据用户id更新用户信息-->
+    <update id="updateUserById" parameterType="user" >
+        UPDATE user SET userpwd = #{userpwd}, userphone = #{userphone}, useraddress = #{useraddress} where userid = #{userid}
+    </update>
+</mapper>
